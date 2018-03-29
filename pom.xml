@@ -93,7 +93,15 @@
      
                     </fileset>
                 
-                    
+                    <fileset>
+                        <directory>/var/lib/jenkins/workspace/ARCPerformance1/Report</directory>
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+     
+                    </fileset>
+
                 </filesets>
             </configuration>
             </plugin>
