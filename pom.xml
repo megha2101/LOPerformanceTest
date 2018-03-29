@@ -189,12 +189,12 @@
             </plugin>
 
             
-            <!-- <plugin>
+            <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-analysis-maven-plugin</artifactId>
                 <version>1.0.5</version>
                 <configuration>
-                    <source>${project.build.directory}/jmeter/results/LeedOnline.jtl</source>
+                    <source>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther.jtl</source>
                           
               <sourceDirFailed>true</sourceDirFailed>
               <checkResult>
@@ -219,7 +219,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> -->
+            </plugin> 
 
             <plugin>
                 <!-- To start an embedded jetty with a simple webapp for demonstration purposes -->
