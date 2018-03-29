@@ -231,7 +231,7 @@
                 <artifactId>jmeter-analysis-maven-plugin</artifactId>
                 <version>1.0.4</version>
                 <configuration>
-                    <source>${project.build.directory}/target/jmeter/results/Arc-performance-test-BuildingOther.jtl</source>
+                    <source>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther.jtl</source>
                 </configuration>
                 <executions>
                     <execution>
@@ -280,19 +280,19 @@
                             <pluginType>ThreadsStateOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/target/jmeter/results/Arc-performance-test-BuildingOther-ThreadsStateOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-ThreadsStateOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>ResponseTimesOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/target/jmeter/results/Arc-performance-test-BuildingOther-ResponseTimesOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-ResponseTimesOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>TransactionsPerSecond</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/target/jmeter/results/Arc-performance-test-BuildingOther-TransactionsPerSecond.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-TransactionsPerSecond.png</outputFile>
                         </graph>
                    </graphs>
                 </configuration>
