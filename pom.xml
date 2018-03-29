@@ -16,13 +16,13 @@
     <properties>
         <jetty.port>9097</jetty.port>
         <jetty.stopPort>19097</jetty.stopPort>
-        <performancetest.webservice.host>localhost</performancetest.webservice.host>
+        <performancetest.webservice.host>10.65.84.93</performancetest.webservice.host>
         <performancetest.webservice.port>${jetty.port}</performancetest.webservice.port>
         <performancetest.webservice.path>/</performancetest.webservice.path>
         <performancetest.connectTimeout>1000</performancetest.connectTimeout>
         <performancetest.responseTimeout>3000</performancetest.responseTimeout>
-        <performancetest.threadCount>20</performancetest.threadCount>
-        <performancetest.loopCount>10</performancetest.loopCount>
+        <performancetest.threadCount>1</performancetest.threadCount>
+        <performancetest.loopCount>1</performancetest.loopCount>
     </properties>
 
     <dependencies>
@@ -43,49 +43,18 @@
                 <performancetest.loopCount>5</performancetest.loopCount>
             </properties>
         </profile>
-        <profile>
-            <id>embedded-jetty</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>start-jetty</id>
-                                <goals>
-                                    <goal>start</goal>
-                                </goals>
-                                <phase>pre-integration-test</phase>
-                                <configuration>
-                                    <daemon>true</daemon>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>stop-jetty</id>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                                <phase>post-integration-test</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
-
     <build>
         <plugins>
-
-            <plugin>
+        
+        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-clean-plugin</artifactId>
             <version>2.4.1</version>
             <configuration>
                  <filesets>
                     <fileset>
-                        <directory>/var/lib/jenkins/workspace/ARCPerformance1/Reportfile</directory>
+                        <directory>/var/lib/jenkins/workspace/ARCPerformance/Reportfile</directory>
                         <includes>
                             <include>**/*</include>
                         </includes>
@@ -93,15 +62,7 @@
      
                     </fileset>
                 
-                    <fileset>
-                        <directory>/var/lib/jenkins/workspace/ARCPerformance1/Report</directory>
-                        <includes>
-                            <include>**/*</include>
-                        </includes>
-                        <followSymlinks>false</followSymlinks>
-     
-                    </fileset>
-
+                    
                 </filesets>
             </configuration>
             </plugin>
@@ -119,10 +80,10 @@
             </goals>
             <configuration>
             <overwrite>false</overwrite>
-              <outputDirectory>/var/lib/jenkins/workspace/ARCPerformance1/Reportfile</outputDirectory>
+              <outputDirectory>/var/lib/jenkins/workspace/ARCPerformance/Reportfile</outputDirectory>
               <resources>          
                 <resource>
-                  <directory>/var/lib/jenkins/workspace/ARCPerformance1/src/test/jmeter/File</directory>
+                  <directory>/var/lib/jenkins/workspace/ARCPerformance/src/test/jmeter/File</directory>
                   <filtering>true</filtering>
                 </resource>
               </resources>              
@@ -131,7 +92,8 @@
           </executions>
       </plugin>
         
-
+        
+        
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
@@ -148,7 +110,7 @@
                         <webservice.connectTimeout>${performancetest.connectTimeout}</webservice.connectTimeout>
                         <webservice.responseTimeout>${performancetest.responseTimeout}</webservice.responseTimeout>
                         <threadCount>${performancetest.threadCount}</threadCount>
-                        <loopCount>${performancetest.threadCount}</loopCount>
+                        <loopCount>${performancetest.loopCount}</loopCount>
                     </propertiesUser>
                     <propertiesJMeter>
                         <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
@@ -226,12 +188,27 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
+            
+            <!-- <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-analysis-maven-plugin</artifactId>
-                <version>1.0.4</version>
+                <version>1.0.5</version>
                 <configuration>
-                    <source>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther.jtl</source>
+                    <source>${project.build.directory}/jmeter/results/LeedOnline.jtl</source>
+                          
+              <sourceDirFailed>true</sourceDirFailed>
+              <checkResult>
+                <throughput>
+                  <threshold>-1</threshold>
+                  <toleranceDirection>UPPER_LOWER_TOLERANCE</toleranceDirection>
+                  <tolerance>1</tolerance>
+                </throughput>
+                <errors>
+                  <threshold>-1</threshold>
+                  <toleranceDirection>UPPER_LOWER_TOLERANCE</toleranceDirection>
+                  <tolerance>50</tolerance>
+                </errors>
+              </checkResult>
                 </configuration>
                 <executions>
                     <execution>
@@ -242,7 +219,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
 
             <plugin>
                 <!-- To start an embedded jetty with a simple webapp for demonstration purposes -->
@@ -280,19 +257,69 @@
                             <pluginType>ThreadsStateOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-ThreadsStateOverTime.png</outputFile>
+                            
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ThreadsStateOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>ResponseTimesOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-ResponseTimesOverTime.png</outputFile>
+                            
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ResponseTimesOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>TransactionsPerSecond</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/Arc-performance-test-BuildingOther-TransactionsPerSecond.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-TransactionsPerSecond.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>TimesVsThreads</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ResponseTimesoverThreads.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>HitsPerSecond</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-HitsPerSecond.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>BytesThroughputOverTime</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-BytesThroughputOverTime.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>LatenciesOverTime</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-LatenciesOverTime.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>ResponseCodesPerSecond</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ResponseCodesPerSecond.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>ResponseTimesDistribution</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ResponseTimesDistribution.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>ResponseTimesPercentiles</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ResponseTimesPercentiles.png</outputFile>
+                        </graph>
+                        <graph>
+                            <pluginType>ThroughputVsThreads</pluginType>
+                            <width>800</width>
+                            <height>600</height>
+                            <outputFile>${project.build.directory}/jmeter/results/ARCPerformance-ThroughputVsThreads.png</outputFile>
                         </graph>
                    </graphs>
                 </configuration>
