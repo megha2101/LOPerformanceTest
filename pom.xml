@@ -176,7 +176,7 @@
                 <artifactId>jmeter-analysis-maven-plugin</artifactId>
                 <version>1.0.4</version>
                 <configuration>
-                    <source>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest.jtl</source>
+                    <source>${project.build.directory}/jmeter/results/Community-Registration.jtl</source>
                 </configuration>
                 <executions>
                     <execution>
@@ -219,25 +219,25 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <inputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest.jtl</inputFile>
+                    <inputFile>${project.build.directory}/jmeter/results/Community-Registration.jtl</inputFile>
                     <graphs>
                         <graph>
                             <pluginType>ThreadsStateOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest-ThreadsStateOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Community-Registration-ThreadsStateOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>ResponseTimesOverTime</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest-ResponseTimesOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Community-Registration-ResponseTimesOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>TransactionsPerSecond</pluginType>
                             <width>800</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest-TransactionsPerSecond.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/results/Community-Registration-TransactionsPerSecond.png</outputFile>
                         </graph>
                    </graphs>
                 </configuration>
