@@ -660,7 +660,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\Reportfile\SummaryReport.csv</stringProp>
+          <stringProp name="filename">C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile\SummaryReport.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
