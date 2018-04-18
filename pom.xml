@@ -54,7 +54,7 @@
             <configuration>
                  <filesets>
                     <fileset>
-                        <directory>C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\Reportfile</directory>
+                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile</directory>
                         <!-- <directory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv</directory> -->
                         <includes>
                             <include>**/*</include>
@@ -65,7 +65,7 @@
                 
                 <fileset>
                         <!-- <directory>/var/lib/jenkins/workspace/TestPerformance/Reportfile</directory> -->
-                        <directory>C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\Report</directory>
+                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Report</directory>
                         <!-- <directory>/var/lib/jenkins/workspace/ARCPerformance/Report</directory> -->
                         <includes>
                             <include>**/*</include>
@@ -93,14 +93,13 @@
             </goals>
             <configuration>
             <overwrite>false</overwrite>
-              <outputDirectory>C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\Reportfile</outputDirectory>
+              <outputDirectory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile</outputDirectory>
               <!-- <outputDirectory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv 
               </outputDirectory>-->
               <resources>          
                 <resource>
-                  <directory>C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\src\test\jmeter\File</directory>
-                  <!-- <directory>D:\Jenkins\workspace\TestPerformance\src\test\jmeter\File 
-                    </directory>-->
+                  <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\src\test\jmeter\File</directory>
+                  <!-- <directory>D:\Jenkins\workspace\TestPerformance\src\test\jmeter\File </directory>-->
                   <filtering>true</filtering>
                 </resource>
               </resources>              
