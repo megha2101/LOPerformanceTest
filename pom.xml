@@ -214,7 +214,7 @@
                     
                    <!--  <source>D:\Jenkins\workspace\TestPerformance\target\jmeter\results/ArcPerformanceBuildingOther.jtl
                     </source> -->
-                  <source>C:\Users\Megha\.jenkins\workspace\newUSGBCPerformance\target\jmeter\results\Community-Registration.jtl
+                  <source>${project.build.directory}\jmeter\results\Community-Registration.jtl
                   </source> 
                           
               <sourceDirFailed>true</sourceDirFailed>
