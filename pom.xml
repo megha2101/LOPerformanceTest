@@ -7,7 +7,7 @@
     <artifactId>jmeter-maven-example</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>New USGBC Performance</name>
+    <name>New Usgbc Performance</name>
     <description>
         Example how to integrate jmeter tests in a maven build and how to automatically 
         generate graphs from the test results using the jmeter plugins CMDRunner. 
@@ -16,7 +16,7 @@
     <properties>
         <jetty.port>9097</jetty.port>
         <jetty.stopPort>19097</jetty.stopPort>
-        <performancetest.webservice.host>10.65.84.93</performancetest.webservice.host>
+        <performancetest.webservice.host>localhost</performancetest.webservice.host>
         <performancetest.webservice.port>${jetty.port}</performancetest.webservice.port>
         <performancetest.webservice.path>/</performancetest.webservice.path>
         <performancetest.connectTimeout>1000</performancetest.connectTimeout>
@@ -46,14 +46,27 @@
     </profiles>
     <build>
         <plugins>
-         <plugin>
+        
+        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-clean-plugin</artifactId>
             <version>2.4.1</version>
             <configuration>
                  <filesets>
                     <fileset>
-                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile\</directory>
+                        <directory>${project.basedir}\Reportfile\</directory>
+                        <!-- <directory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv</directory> -->
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+     
+                    </fileset>
+                
+                <fileset>
+                        <!-- <directory>/var/lib/jenkins/workspace/TestPerformance/Reportfile</directory> -->
+                        <directory>${project.basedir}\Report\</directory>
+                        <!-- <directory>/var/lib/jenkins/workspace/ARCPerformance/Report</directory> -->
                         <includes>
                             <include>**/*</include>
                         </includes>
@@ -61,23 +74,14 @@
      
                     </fileset>
                     
-                     <fileset>
-                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Report\</directory>
-                        <includes>
-                            <include>**/*</include>
-                        </includes>
-                        <followSymlinks>false</followSymlinks>
-     
-                    </fileset>
-                    
-                    
-                    </filesets>
+
+                </filesets>
             </configuration>
             </plugin>
             
-            
-     <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
+            <plugin>
+        <artifactId>maven-resources-plugin</artifactId> 
+        <!-- This plugin is used for making the backup -->
         <version>2.7</version>
          <executions>
           <execution>
@@ -89,7 +93,7 @@
             </goals>
             <configuration>
             <overwrite>false</overwrite>
-              <outputDirectory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile\</outputDirectory>
+              <outputDirectory>${project.basedir}\Reportfile\</outputDirectory>
               <!-- <outputDirectory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv 
               </outputDirectory>-->
               <resources>          
@@ -104,7 +108,9 @@
          </execution>
           </executions>
       </plugin>
-               
+        
+        
+        
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
