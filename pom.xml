@@ -46,14 +46,14 @@
     </profiles>
     <build>
         <plugins>
-            <plugin>
+         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-clean-plugin</artifactId>
             <version>2.4.1</version>
             <configuration>
                  <filesets>
                     <fileset>
-                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile</directory>
+                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile\</directory>
                         <includes>
                             <include>**/*</include>
                         </includes>
@@ -62,7 +62,7 @@
                     </fileset>
                     
                      <fileset>
-                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Report</directory>
+                        <directory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Report\</directory>
                         <includes>
                             <include>**/*</include>
                         </includes>
@@ -89,12 +89,12 @@
             </goals>
             <configuration>
             <overwrite>false</overwrite>
-              <outputDirectory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile</outputDirectory>
+              <outputDirectory>C:\Users\Megha\.jenkins\workspace\PerformanceTest\Reportfile\</outputDirectory>
               <!-- <outputDirectory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv 
               </outputDirectory>-->
               <resources>          
                 <resource>
-                  <directory>${project.basedir}\src\test\jmeter\File</directory>
+                  <directory>${project.basedir}\src\test\jmeter\File\</directory>
                   <!-- <directory>D:\Jenkins\workspace\TestPerformance\src\test\jmeter\File 
                     </directory>-->
                   <filtering>true</filtering>
@@ -104,9 +104,7 @@
          </execution>
           </executions>
       </plugin>
-        
-        
-        
+               
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
