@@ -53,16 +53,6 @@
             <version>2.4.1</version>
             <configuration>
                  <filesets>
-                    <fileset>
-                        <directory>${project.basedir}\Reportfile\</directory>
-                        <!-- <directory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv</directory> -->
-                        <includes>
-                            <include>**/*</include>
-                        </includes>
-                        <followSymlinks>false</followSymlinks>
-     
-                    </fileset>
-                
                 <fileset>
                         <!-- <directory>/var/lib/jenkins/workspace/TestPerformance/Reportfile</directory> -->
                         <directory>${project.basedir}\Report\</directory>
@@ -93,7 +83,7 @@
             </goals>
             <configuration>
             <overwrite>false</overwrite>
-              <outputDirectory>${project.basedir}\Reportfile\</outputDirectory>
+              <outputDirectory>${project.basedir}\Reportfile</outputDirectory>
               <!-- <outputDirectory>C:\apache-jmeter-4.0\apache-jmeter-4.0\bin\examples\csv 
               </outputDirectory>-->
               <resources>          
