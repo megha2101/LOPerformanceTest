@@ -63,6 +63,16 @@
                         <followSymlinks>false</followSymlinks>
      
                     </fileset>
+                    <fileset>
+                        <!-- <directory>/var/lib/jenkins/workspace/TestPerformance/Reportfile</directory> -->
+                        <directory>${project.basedir}\Reportfile\</directory>
+                        <!-- <directory>/var/lib/jenkins/workspace/ARCPerformance/Report</directory> -->
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+     
+                    </fileset>
                     
 
                 </filesets>
