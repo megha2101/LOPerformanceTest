@@ -214,7 +214,7 @@
                     
                    <!--  <source>D:\Jenkins\workspace\TestPerformance\target\jmeter\results/ArcPerformanceBuildingOther.jtl
                     </source> -->
-                  <source>${project.build.directory}\jmeter\results\Community-Registration.jtl
+                  <source>${project.build.directory}\jmeter\results\LO_Test.jtl
                   </source> 
                           
               <sourceDirFailed>true</sourceDirFailed>

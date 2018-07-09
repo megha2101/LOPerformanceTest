@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1527179043812,7786,http://test-dynamic-usgbc.pantheonsite.io/community/registration,200,OK,Thread Group 1-1,text,true,,169903,21169,1,1,4922,0,299
+1527179064505,775,http://test-dynamic-usgbc.pantheonsite.io/signin,200,OK,Thread Group 1-1,text,true,,36176,12918,1,1,532,0,23
+1527179084655,1446,http://test-dynamic-usgbc.pantheonsite.io/usgbc/payment,200,OK,Thread Group 1-1,text,true,,38923,13828,1,1,223,0,30
+1527179096438,791,http://test-dynamic-usgbc.pantheonsite.io/payment/reciept,200,OK,Thread Group 1-1,text,true,,36992,11023,1,1,224,0,20
